@@ -4,67 +4,174 @@ body {
     padding: 0;
 }
 
+@font-face {
+    font-family: 'MatisseEleganto Pro EB'; /* Name your font family */
+    src: url('FOT-MatisseEleganto Pro EB.otf') format('opentype'); /* Path to font file */
+}
+
 .main-header {
-    background-color: rgba(0, 0, 0, .3);
-    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+@keyframes slideIn { 
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .title {
+    animation: slideIn 0.5s ease-out forwards;
     text-align: center;
     margin: 0;
-    font-size: 8em;
-    font-family: "Helvetica";
+    font-size: 3em;
+    font-family: 'MatisseEleganto Pro EB', sans-serif; 
     font-weight: normal;
-    color: white;
+    font-size: 70px;
+    font-weight: 600;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #2ff5ff, 0px 0px 10px #2ff5ff, 0px 0px 10px #2ff5ff,
+      0px 0px 20px #2ff5ff;
 }
 
-#card-container {
+/* Style navigation bar */
+nav {
     display: flex;
-    justify-content: center;
-    margin: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+
+/* Style search input */
+input[type="text"] {
+    padding: 8px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px; 
+    margin-left: 10px; 
+    margin-right: 5px; 
+}
+
+/* Style  search button */
+button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #2da0ff; /* Blue background color */
+    color: white;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: transform 0.3s ease; /* Add transition for smooth animation */
+
+}
+
+/* Style  button on hover */
+button:hover {
+    transform: scale(1.1); /* Scale up  button on hover */
+    background-color: #2466ff; /* Darker blue on hover */
+}
+
+select {
+    padding: 8px; 
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px; 
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #333; /* Text color */
+    background-color: #fff; /* Background color */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+/* Style select when hovered */
+select:hover {
+    border-color: #999; /* Change border color on hover */
+}
+
+/* Style select when focused */
+select:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #2da0ff; /* Change border color when focused */
+}
+
+/* Style select options */
+select option {
+    /* Adjust padding and font properties */
+    padding: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Style select when an option is hovered */
+select option:hover {
+    background-color: #f0f0f0; 
+}
+
+/* Style select when an option is selected */
+select option:checked {
+    background-color: #2da0ff; 
+    color: #fff; 
+}
+
+/* Add spacing between filter elements */
+.filter-group {
+    display: flex;
+    gap: 10px; 
+    margin-right: 10px; 
+}
+
+h1 {
+    font-family: 'MatisseEleganto Pro EB', sans-serif; /* Use custom font for headings */
 }
 
 .card {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 5px;
-}
-
-.card-content {
-    padding: 20px;
-    font-family: "Verdana";
-    color: #777;
-}
-
-.card-content h2 {
-    margin-top: 0;
-    font-size: 20px;
+    display: none; /* Hide the template card initially */
 }
 
 .card img {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 100px; /* Set the maximum height for the images */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.card {
+    border: 2px solid #3d87ff;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background-color: hsl(188, 100%, 85%);
+    transition: background-color 0.3s ease-in-out;
+    
+}
+
+.card img {
+    max-width: 100%;
     height: auto;
 }
 
-.footer {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, .3);
-    padding: 10px;
+/* Define hover animation */
+@keyframes scaleUp {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
 }
 
-button {
-    text-align: center;
-    background-color: #666;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 40px;
-    border-radius: 10px;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    margin: 5px;
+/* Apply animation to the card when hovering */
+.card:hover {
+    animation: scaleUp 0.3s ease-in-out forwards;
+    background-color: #f1f1f1;
 }
